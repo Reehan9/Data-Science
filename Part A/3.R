@@ -8,7 +8,7 @@ x <- iris[-5]
 model <- kmeans(x,centers =  3)
 
 # Add cluster assignments to the data
-iris$cluster <- as.factor(model$cluster)
+iris$cluster <- model$cluster
 
 # Use clusplot for visualization
 clusplot(x, model$cluster, main="2D representation of the Cluster solution")
