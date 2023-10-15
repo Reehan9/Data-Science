@@ -53,9 +53,10 @@ importance(classifier_RF)
 varImpPlot(classifier_RF)
 
 #Plot for Histogram
-ggplot(train) + 
-  geom_histogram(aes(x=Sepal.Length), binwidth=0.5, fill="gray")+
-  labs(title="Histogram of Sepal Lengths", x="Length of the Sepal", y="Frequency")
+ggplot(iris,aes(x=Species,y=Sepal.Length))+
+  geom_boxplot()+
+  geom_jitter(width=0.2,alpha=0.6)+
+  labs(title="Box Plot of Sepal Length by Species",x="Species",y="Length")
 
 # Boxplot for Sepal Length across species
 ggplot(iris) + 
