@@ -52,16 +52,12 @@ importance(classifier_RF)
 # Plot the variable importance
 varImpPlot(classifier_RF)
 
-#Plot for Histogram
+#Plot for BoxPlot
 ggplot(iris,aes(x=Species,y=Sepal.Length))+
   geom_boxplot()+
   geom_jitter(width=0.2,alpha=0.6)+
   labs(title="Box Plot of Sepal Length by Species",x="Species",y="Length")
 
-# Boxplot for Sepal Length across species
-ggplot(iris) + 
-  geom_boxplot(aes(x=Species, y=Sepal.Length), fill="skyblue") +
-  labs(title="Box Plot of Sepal Length by Species", x = "Species" , y ="Length" )
 
 # Scatter plot for Sepal Length vs. Sepal Width
 ggplot(iris) + 
