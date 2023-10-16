@@ -17,3 +17,4 @@ clusplot(x, model$cluster, main="2D representation of the Cluster solution")
 ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = cluster)) + 
   geom_point() + 
   labs(title = "K-means Clustering of Iris Dataset with ggplot2")
+
