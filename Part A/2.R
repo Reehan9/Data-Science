@@ -9,6 +9,7 @@ library(arulesViz)
 #If importing seprating from local system then 
 # trans <- read.transactions("/Users/syedreehan/Desktop/a.txt", format = "basket", sep = " ")
 
+
 # Load the Groceries dataset from the arules package
 data(Groceries) 
 
