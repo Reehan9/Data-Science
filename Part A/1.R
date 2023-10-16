@@ -52,7 +52,7 @@ importance(classifier_RF)
 # Plot the variable importance
 varImpPlot(classifier_RF)
 
-#Plot for Histogram
+#Plot for BoxPlot
 ggplot(iris,aes(x=Species,y=Sepal.Length))+
   geom_boxplot()+
   geom_jitter(width=0.2,alpha=0.6)+
