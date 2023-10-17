@@ -1,0 +1,28 @@
+library(caTools)
+install.packages("ROCR")
+library(ROCR)
+data("mtcars")
+head(mtcars)
+
+split<-sample.split(mtcars,SplitRatio=0.7)
+train<-subset(mtcars,split==TRUE)
+test<-subset(mtcars,split==FALSE)
+
+linear_model<-lm(mpg ~ hp, train)
+logistic_model<-glm(vs ~ hp+wt, train, family=binomial())
+
+predlm<-predict(linear_model,test)
+predglm<-predict(logistic_model,test)
+
+error<-test$mpg-pred
+rmse<-sqrt(mean(error^2))
+print(rmse)
+
+ggplot(test,aes(x=test$hp,y=test$mpg))+
+  geom_point()+
+  geom_smooth(method="lm",color="red")+
+  labs(title="Linear Regression",x="Horse Power",y="Miles per Gallon")
+  
+predglm<-ifelse(predglm>0.5,1,0)
+roc<-performance(prediction(predglm,test$vs),measure='tpr',x.measure='fpr')
+plot(roc)
